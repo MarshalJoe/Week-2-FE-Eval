@@ -25,6 +25,10 @@
 </head>
 <body>
 
+<input id="input_title">title</input>
+<input id="input_author">author</input>
+<button id="add_button">Add Book</button>
+
 <h1>THE LIBRARY</h1>
 
 
@@ -48,11 +52,6 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
 <script type="text/javascript">
   // TODO
-var book = {
-    title: 'Shaman',
-    author: 'Kim Stanley Robinson'.toUpperCase(),
-    status: ' available'
-  };
 
 var books = [
     {
@@ -84,7 +83,25 @@ var renderLibrary = function () {
     }
 };
 
+
+$('#add_button').on('click', function (e) {
+    var new_title = $('#input_title').val();
+    var new_author = $('#input_author').val();
+
+    var new_book = {
+        title: new_title,
+        author: new_author,
+        status: ' available'
+    };
+
+    var supernewScoreHtml = scoreTemplate(new_book);
+    $('#library').append(supernewScoreHtml);
+    console.log(new_title);
+    console.log(new_book);
+});
+
 renderLibrary();
+
 
 //for (var i=0; i < books.length; i += 1) {
 //        var newScoreHtml = scoreTemplate(books[i]);
