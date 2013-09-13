@@ -35,7 +35,6 @@
 <div id="library"></div>
 
 
-
 <div id="templates">
     <script class="info" type="text/template">
         <div class="book">
@@ -51,7 +50,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
 <script type="text/javascript">
-  // TODO
+
+//creates books array
 
 var books = [
     {
@@ -71,10 +71,12 @@ var books = [
     }
 ];
 
-
+//takes plain text from the templates id html and creates a new function that formats it using underscore's template ability
 
 var scoreTemplateHtml = $('#templates .info').html();
 var scoreTemplate = _.template(scoreTemplateHtml);
+
+//defines a function that iterates over the objects in the books array and passes them into the templating function one by one, adding the result to the library tag
 
 var renderLibrary = function () {
     for (var i=0; i < books.length; i += 1) {
@@ -83,6 +85,7 @@ var renderLibrary = function () {
     }
 };
 
+//grabs the author and title from the input tags whenever the button is clicked, then makes a new oject using those values
 
 $('#add_button').on('click', function (e) {
     var new_title = $('#input_title').val();
@@ -94,22 +97,15 @@ $('#add_button').on('click', function (e) {
         status: ' available'
     };
 
+//passes the new object into the templating function, then adds the result to the library tag
+
     var supernewScoreHtml = scoreTemplate(new_book);
     $('#library').append(supernewScoreHtml);
-    console.log(new_title);
-    console.log(new_book);
 });
 
+//calls templating function on setup to populate page with existing book objects
+
 renderLibrary();
-
-
-//for (var i=0; i < books.length; i += 1) {
-//        var newScoreHtml = scoreTemplate(books[i]);
-//        $('#library').append(newScoreHtml);
-//    }
-
-  //console.log(newScoreHtml);
-  //$('#library').append(newScoreHtml);
 
 
 </script>
