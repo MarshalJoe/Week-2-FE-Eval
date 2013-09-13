@@ -65,11 +65,12 @@ var books = [
     {
         title: 'Siddhartha',
         author: 'Hesse',
-        status: 'checked out'
+        status: ' checked out'
     },
     {
         title: 'Infinite Jest',
-        author: 'Foster-Wallace'
+        author: 'Foster-Wallace',
+        status: ' available'
     }
 ];
 
@@ -77,12 +78,14 @@ var books = [
 
 var scoreTemplateHtml = $('#templates .info').html();
 var scoreTemplate = _.template(scoreTemplateHtml);
-var newScoreHtml = scoreTemplate(book);
 
+for (var i=0; i < books.length; i += 1) {
+      var newScoreHtml = scoreTemplate(books[i]);
+      $('#library').append(newScoreHtml);
+    }
 
-
-  console.log(newScoreHtml);
-  $('#library').append(newScoreHtml);
+  //console.log(newScoreHtml);
+  //$('#library').append(newScoreHtml);
 
 
 
