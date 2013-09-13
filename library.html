@@ -10,8 +10,6 @@
     #library .book {
       background: #ccc;
       width: 200px;
-      height: 30px;
-      clear: both;
       float: left;
       padding: 10px 10px;
     }
@@ -38,11 +36,13 @@
 
 <div id="templates">
     <script class="info" type="text/template">
-    <h3 class="book"><%=title%></h3>
+        <div class="book">
+            <h3><%=title%></h3>
 
-    <h5 class="book"><%=author%></h5>
+            <h5><%=author%></h5>
 
-    <p class="book">Status:<%=status%></p>
+            <p>Status:<%=status%></p>
+        </div>
     </script>
 </div>
 
