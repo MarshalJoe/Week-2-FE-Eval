@@ -1,38 +1,74 @@
 <html>
+
 <head>
-  <title>Week 2 Frontend Project</title>
-  <style type="text/css">
+    <title>Week 2 Frontend Project</title>
+    <style type="text/css">
+    
     #templates { display: none; }
     small { position: fixed; bottom: 4px; right: 4px; }
+    
     #library .book {
       background: #ccc;
       width: 200px;
+      height: 30px;
+      clear: both;
       float: left;
-      padding: 1px 20px;
+      padding: 10px 10px;
     }
+    
     #library .book h3 {
       font-style: italic;
     }
+    
     #library .book h5 {
       font-weight: normal;
     }
-  </style>
+    </style>
 </head>
 <body>
 
 <h1>THE LIBRARY</h1>
 
 
-<div id="library"></div>
+<div id="library">
+
+</div>
+
+
 
 <div id="templates">
+    <script class="info" type="text/template">
+    <h3 class="book"><%=title%></h3>
 
+    <h5 class="book"><%=author%></h5>
+
+    <p class="book">Status:<%=status%></p>
+    </script>
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
 <script type="text/javascript">
   // TODO
+var book = {
+    title: 'Shaman',
+    author: 'Kim Stanley Robinson'.toUpperCase(),
+    status: ' available'
+  };
+
+var scoreTemplateHtml = $('#templates .info').html();
+var scoreTemplate = _.template(scoreTemplateHtml);
+var newScoreHtml = scoreTemplate(book);
+
+
+
+  console.log(newScoreHtml);
+  $('#library').append(newScoreHtml);
+
+
+
+
+
 </script>
 
 <small>It's back.</small>
