@@ -56,6 +56,25 @@ var book = {
     status: ' available'
   };
 
+var books = [
+    {
+        title: 'The Pale King',
+        author: 'Nabokov',
+        status: 'available'
+    },
+    {
+        title: 'Siddhartha',
+        author: 'Hesse',
+        status: 'checked out'
+    },
+    {
+        title: 'Infinite Jest',
+        author: 'Foster-Wallace'
+    }
+];
+
+
+
 var scoreTemplateHtml = $('#templates .info').html();
 var scoreTemplate = _.template(scoreTemplateHtml);
 var newScoreHtml = scoreTemplate(book);
