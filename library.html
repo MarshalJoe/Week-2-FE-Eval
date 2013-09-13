@@ -28,9 +28,7 @@
 <h1>THE LIBRARY</h1>
 
 
-<div id="library">
-
-</div>
+<div id="library"></div>
 
 
 
@@ -79,16 +77,22 @@ var books = [
 var scoreTemplateHtml = $('#templates .info').html();
 var scoreTemplate = _.template(scoreTemplateHtml);
 
-for (var i=0; i < books.length; i += 1) {
-      var newScoreHtml = scoreTemplate(books[i]);
-      $('#library').append(newScoreHtml);
+var renderLibrary = function () {
+    for (var i=0; i < books.length; i += 1) {
+        var newScoreHtml = scoreTemplate(books[i]);
+        $('#library').append(newScoreHtml);
     }
+};
+
+renderLibrary();
+
+//for (var i=0; i < books.length; i += 1) {
+//        var newScoreHtml = scoreTemplate(books[i]);
+//        $('#library').append(newScoreHtml);
+//    }
 
   //console.log(newScoreHtml);
   //$('#library').append(newScoreHtml);
-
-
-
 
 
 </script>
